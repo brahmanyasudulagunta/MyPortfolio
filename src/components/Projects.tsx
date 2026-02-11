@@ -14,7 +14,7 @@ const projects = [
       "50% reduction in infrastructure downtime",
       "Integrated 8+ OpenStack core services"
     ],
-    github: "https://github.com/Ashrith2727/OpenstackProject"
+    github: "https://github.com/brahmanyasudulagunta/OpenstackProject"
   },
   {
     title: "DevPlatform - GitOps Infrastructure",
@@ -26,7 +26,7 @@ const projects = [
       "Argo CD continuous deployment",
       "Multi-environment (dev/staging/prod)"
     ],
-    github: "https://github.com/Ashrith2727/DevPlatform"
+    github: "https://github.com/brahmanyasudulagunta/DevPlatform"
   },
   {
     title: "DevOps Metrics Dashboard",
@@ -38,7 +38,7 @@ const projects = [
       "CPU, memory, disk, network monitoring",
       "Fully reproducible observability platform"
     ],
-    github: "https://github.com/Ashrith2727/Metrics-Dashboard"
+    github: "https://github.com/brahmanyasudulagunta/Metrics-Dashboard"
   },
   {
     title: "Linux Malware Analysis using KVM Hypervisor",
@@ -61,7 +61,7 @@ const projects = [
       "Jenkins CI/CD for automated builds and deployments",
       "Automated Docker image push to container registry"
     ],
-    github: "https://github.com/Ashrith2727/gemini-gen-ai-chatbot"
+    github: "https://github.com/brahmanyasudulagunta/gemini-gen-ai-chatbot"
   },
   {
     title: "RAG-Powered Knowledge Assistant",
@@ -73,7 +73,7 @@ const projects = [
       "Hybrid retrieval: local docs + web search + LLM",
       "Modular pipeline with automated PDF parsing"
     ],
-    github: "https://github.com/Ashrith2727/RAG_Chatbot"
+    github: "https://github.com/brahmanyasudulagunta/RAG_Chatbot"
   },
   {
     title: "Interactive Text Summarization",
@@ -85,7 +85,7 @@ const projects = [
       "Support for multiple document formats",
       "Interactive web interface"
     ],
-    github: "https://github.com/Ashrith2727/Interactive-Text-Summarization"
+    github: "https://github.com/brahmanyasudulagunta/Interactive-Text-Summarization"
   },
 ];
 

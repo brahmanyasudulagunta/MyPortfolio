@@ -11,7 +11,7 @@ const Footer = () => {
 
           <div className="flex gap-6">
             <a
-              href="https://github.com/Ashrith2727"
+              href="https://github.com/brahmanyasudulagunta"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-smooth"
@@ -27,7 +27,7 @@ const Footer = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:bsudulag@ttu.edu"
+              href="mailto:bsudulagunta@gmail.com"
               className="text-muted-foreground hover:text-primary transition-smooth"
             >
               <Mail className="h-5 w-5" />

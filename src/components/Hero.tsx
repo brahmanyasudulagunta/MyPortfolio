@@ -57,14 +57,6 @@ const Hero = () => {
             >
               View My Work
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border hover:border-muted-foreground"
-              onClick={scrollToContact}
-            >
-              Get In Touch
-            </Button>
           </motion.div>
 
           <motion.div
@@ -74,9 +66,9 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             {[
-              { href: "https://github.com/Ashrith2727", icon: Github, label: "GitHub" },
+              { href: "https://github.com/brahmanyasudulagunta", icon: Github, label: "GitHub" },
               { href: "https://linkedin.com/in/brahmanyasudulagunta", icon: Linkedin, label: "LinkedIn" },
-              { href: "mailto:bsudulag@ttu.edu", icon: Mail, label: "Email" },
+              { href: "mailto:bsudulagunta@gmail.com", icon: Mail, label: "Email" },
             ].map((social) => (
               <a
                 key={social.label}
