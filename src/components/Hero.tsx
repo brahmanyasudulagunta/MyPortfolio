@@ -7,10 +7,6 @@ const Hero = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center">
       <div className="container mx-auto px-6 z-10">
