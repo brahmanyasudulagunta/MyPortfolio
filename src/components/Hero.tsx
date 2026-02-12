@@ -85,7 +85,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
           >
-            Seeking Summer 2026 internships & full-time roles in Cloud Engineering, DevOps, and Infrastructure.
+            Seeking new grad & entry-level full-time roles in SRE, DevOps, Infrastructure, and Platform Engineering.
           </motion.p>
         </div>
       </div>
