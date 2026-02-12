@@ -78,6 +78,15 @@ const Hero = () => {
               </a>
             ))}
           </motion.div>
+
+          <motion.p
+            className="mt-8 text-sm text-muted-foreground/80 max-w-md mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            Seeking Summer 2026 internships & full-time roles in Cloud Engineering, DevOps, and Infrastructure.
+          </motion.p>
         </div>
       </div>
 
