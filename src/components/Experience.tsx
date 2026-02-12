@@ -27,12 +27,12 @@ const Experience = () => {
     <section id="experience" className="py-24 bg-background relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-1/2 bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
-      
+
       <div className="container mx-auto px-6 relative">
         <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-12 text-center">
           Professional <span className="bg-gradient-primary bg-clip-text text-transparent">Experience</span>
         </AnimatedTitle>
-        
+
         <StaggerContainer className="max-w-4xl mx-auto">
           {experience.map((exp, index) => (
             <StaggerItem key={index}>
@@ -40,10 +40,10 @@ const Experience = () => {
                 <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300">
                   <CardHeader>
                     <div className="flex items-start gap-4">
-                      <motion.div 
+                      <motion.div
                         className="p-3 bg-primary/10 rounded-lg"
                         whileHover={{ scale: 1.1 }}
-                        animate={{ 
+                        animate={{
                           boxShadow: [
                             "0 0 0 0 hsl(var(--primary) / 0)",
                             "0 0 0 8px hsl(var(--primary) / 0.1)",
@@ -62,7 +62,7 @@ const Experience = () => {
                               {exp.company}
                             </CardDescription>
                           </div>
-                          <motion.span 
+                          <motion.span
                             className="text-sm text-muted-foreground whitespace-nowrap px-3 py-1 rounded-full bg-primary/10 text-primary"
                             whileHover={{ scale: 1.05 }}
                           >
@@ -74,17 +74,17 @@ const Experience = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 ml-16">
+                    <ul className="space-y-3 ml-4 md:ml-16">
                       {exp.achievements.map((achievement, i) => (
-                        <motion.li 
-                          key={i} 
+                        <motion.li
+                          key={i}
                           className="flex items-start text-muted-foreground group"
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.1 }}
                         >
-                          <motion.span 
+                          <motion.span
                             className="mr-3 mt-1 flex-shrink-0"
                             whileHover={{ scale: 1.2, rotate: 360 }}
                             transition={{ duration: 0.3 }}

@@ -64,7 +64,7 @@ const PortfolioSidebar = () => {
     }
   };
 
-  const sidebarWidth = isHovered ? "w-48" : "w-16";
+  const sidebarWidth = "w-48";
 
   return (
     <>
@@ -147,20 +147,10 @@ const PortfolioSidebar = () => {
                   )} />
                 </motion.div>
 
-                {/* Label with expand animation */}
-                <AnimatePresence>
-                  {isHovered && (
-                    <motion.span
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="text-sm font-medium whitespace-nowrap"
-                    >
-                      {item.label}
-                    </motion.span>
-                  )}
-                </AnimatePresence>
+                {/* Label */}
+                <span className="text-sm font-medium whitespace-nowrap">
+                  {item.label}
+                </span>
 
                 {/* Hover glow effect */}
                 <motion.div
