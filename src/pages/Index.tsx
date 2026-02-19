@@ -5,13 +5,13 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
-import PortfolioSidebar from "@/components/PortfolioSidebar";
+import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <PortfolioSidebar />
-      <div className="md:ml-48">
+      <Navbar />
+      <div className="pt-20">
         <Hero />
         <About />
         <Education />
