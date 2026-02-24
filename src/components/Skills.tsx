@@ -17,7 +17,7 @@ const skills = [
       { name: "Terraform", level: 88 },
       { name: "Ansible", level: 80 },
     ],
-    color: "from-orange-500 to-amber-500",
+    color: "from-primary/80 to-primary",
   },
   {
     icon: Code2,
@@ -31,7 +31,7 @@ const skills = [
       { name: "SQL", level: 85 },
       { name: "HCL", level: 88 },
     ],
-    color: "from-violet-500 to-purple-500",
+    color: "from-primary/80 to-primary",
   },
   {
     icon: Server,
@@ -44,7 +44,7 @@ const skills = [
       { name: "KVM", level: 85 },
       { name: "k3s", level: 80 },
     ],
-    color: "from-emerald-500 to-teal-500",
+    color: "from-primary/80 to-primary",
   },
   {
     icon: Network,
@@ -58,7 +58,7 @@ const skills = [
       { name: "RBAC", level: 85 },
       { name: "Snort IDS", level: 75 },
     ],
-    color: "from-amber-500 to-orange-500",
+    color: "from-primary/80 to-primary",
   },
 ];
 
@@ -95,12 +95,12 @@ const Skills = () => {
       {/* Background decorations */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
-      
+
       <div className="container mx-auto px-6 relative">
         <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-12 text-center">
           Skills & <span className="bg-gradient-primary bg-clip-text text-transparent">Expertise</span>
         </AnimatedTitle>
-        
+
         {/* Main Skills Grid */}
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
           {skills.map((category, index) => (
@@ -108,17 +108,17 @@ const Skills = () => {
               <Card3D className="h-full">
                 <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 h-full group relative overflow-hidden">
                   {/* Gradient accent */}
-                  <motion.div 
+                  <motion.div
                     className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${category.color}`}
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                   />
-                  
+
                   <CardContent className="pt-8 pb-6">
                     <div className="flex flex-col items-center text-center">
-                      <motion.div 
+                      <motion.div
                         className={`mb-4 p-4 rounded-xl bg-gradient-to-br ${category.color} opacity-80`}
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.3 }}
@@ -128,25 +128,25 @@ const Skills = () => {
                       <h3 className="text-lg font-semibold mb-4">{category.title}</h3>
                       <ul className="space-y-2 text-muted-foreground w-full">
                         {category.skills.map((skill, skillIndex) => (
-                          <motion.li 
-                            key={skillIndex} 
+                          <motion.li
+                            key={skillIndex}
                             className="text-sm"
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3 + skillIndex * 0.05 }}
                           >
-                            <motion.div 
+                            <motion.div
                               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors cursor-default"
-                              whileHover={{ 
-                                x: 5, 
+                              whileHover={{
+                                x: 5,
                                 scale: 1.02,
                                 rotateX: 5,
                                 rotateY: -5,
                               }}
                               style={{ transformStyle: "preserve-3d" }}
                             >
-                              <motion.span 
+                              <motion.span
                                 className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color}`}
                                 whileHover={{ scale: 1.5 }}
                               />
@@ -164,7 +164,7 @@ const Skills = () => {
         </StaggerContainer>
 
         {/* Certifications Section */}
-        <motion.div 
+        <motion.div
           className="max-w-4xl mx-auto mb-16"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -177,7 +177,7 @@ const Skills = () => {
               Certifications & <span className="text-primary">Learning</span>
             </h3>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-4">
             {certifications.map((cert, index) => (
               <motion.div
@@ -191,7 +191,7 @@ const Skills = () => {
               >
                 <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 h-full">
                   <CardContent className="pt-6 pb-4 text-center">
-                    <motion.div 
+                    <motion.div
                       className="inline-flex p-2 rounded-full bg-primary/10 mb-3"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
@@ -208,7 +208,7 @@ const Skills = () => {
         </motion.div>
 
         {/* Additional Skills */}
-        <motion.div 
+        <motion.div
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -220,8 +220,8 @@ const Skills = () => {
           </h3>
           <div className="flex flex-wrap gap-3 justify-center">
             {additionalSkills.map((skill, index) => (
-              <motion.span 
-                key={index} 
+              <motion.span
+                key={index}
                 className="px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm hover:bg-primary/20 hover:text-primary transition-all cursor-default"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
