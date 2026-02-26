@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Cloud, Code2, Network, Server, Award, Sparkles } from "lucide-react";
+import { Cloud, Server, Network, Activity } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedTitle, StaggerContainer, StaggerItem } from "./animations/AnimatedSection";
 import { Card3D } from "./animations/Card3D";
@@ -7,86 +7,79 @@ import { Card3D } from "./animations/Card3D";
 const skills = [
   {
     icon: Cloud,
-    title: "Cloud & DevOps",
+    title: "Containerization & GitOps",
     skills: [
-      { name: "Google Cloud Platform", level: 90 },
-      { name: "Microsoft Azure", level: 75 },
-      { name: "OpenStack", level: 95 },
-      { name: "Docker", level: 90 },
-      { name: "Kubernetes", level: 85 },
-      { name: "Terraform", level: 88 },
-      { name: "Ansible", level: 80 },
-    ],
-    color: "from-primary/80 to-primary",
-  },
-  {
-    icon: Code2,
-    title: "Programming",
-    skills: [
-      { name: "Python", level: 95 },
-      { name: "Java", level: 80 },
-      { name: "JavaScript", level: 85 },
-      { name: "TypeScript", level: 80 },
-      { name: "Bash/Shell", level: 90 },
-      { name: "SQL", level: 85 },
-      { name: "HCL", level: 88 },
+      { name: "Kubernetes", level: 90 },
+      { name: "Docker", level: 95 },
+      { name: "ArgoCD", level: 85 },
+      { name: "kind", level: 85 },
+      { name: "Docker Compose", level: 90 },
+      { name: "Helm / YAML", level: 85 },
     ],
     color: "from-primary/80 to-primary",
   },
   {
     icon: Server,
-    title: "Infrastructure & CI/CD",
+    title: "Infrastructure & Cloud",
     skills: [
-      { name: "Jenkins", level: 90 },
-      { name: "Argo CD", level: 85 },
-      { name: "GitOps", level: 88 },
-      { name: "Linux", level: 95 },
-      { name: "KVM", level: 85 },
-      { name: "k3s", level: 80 },
+      { name: "Terraform", level: 90 },
+      { name: "Ansible", level: 85 },
+      { name: "OpenStack", level: 95 },
+      { name: "Linux / CentOS", level: 90 },
+      { name: "KVM / libvirt", level: 85 },
+      { name: "Google Cloud", level: 80 },
     ],
     color: "from-primary/80 to-primary",
   },
   {
     icon: Network,
-    title: "Networking & Security",
+    title: "CI/CD & Automation",
     skills: [
-      { name: "Wireshark", level: 85 },
-      { name: "VPC", level: 88 },
-      { name: "Load Balancing", level: 85 },
-      { name: "iptables", level: 80 },
-      { name: "SSH", level: 95 },
-      { name: "RBAC", level: 85 },
-      { name: "Snort IDS", level: 75 },
+      { name: "Jenkins", level: 90 },
+      { name: "Bash/Shell", level: 95 },
+      { name: "GitHub Actions", level: 85 },
+      { name: "CI/CD Pipelines", level: 88 },
+      { name: "Git", level: 95 },
+      { name: "Infrastructure as Code", level: 90 },
+    ],
+    color: "from-primary/80 to-primary",
+  },
+  {
+    icon: Activity,
+    title: "Observability & Security",
+    skills: [
+      { name: "Prometheus", level: 88 },
+      { name: "Grafana", level: 85 },
+      { name: "Nginx", level: 85 },
+      { name: "RBAC", level: 90 },
+      { name: "NetworkPolicies", level: 80 },
+      { name: "OPA Guardrails", level: 75 },
     ],
     color: "from-primary/80 to-primary",
   },
 ];
 
 const additionalSkills = [
-  "OpenStack Services (Nova, Neutron, Cinder, Keystone, Glance, Horizon, Heat, Swift)",
-  "Prometheus & Grafana",
-  "FastAPI",
+  "Python",
+  "Java",
+  "JavaScript",
+  "TypeScript",
   "React & Vite",
-  "RAG & Vector Databases",
-  "ChromaDB",
+  "FastAPI",
+  "Flask",
+  "PostgreSQL",
+  "MySQL",
+  "Redis",
+  "AI/ML",
+  "LLM Integration",
   "Gemini API",
-  "IAM & Security",
-  "Compute Engine",
-  "Cloud Storage",
-  "Cloud SQL",
-  "VirtualBox",
-  "Network Topologies (VXLAN, NAT)",
-  "Ghidra",
+  "Pytest",
+  "SSE streaming",
+  "ChromaDB",
+  "Vector Databases",
+  "Wireshark",
+  "Network Topologies (VXLAN)",
   "VS Code & PyCharm",
-  "Jupyter Notebook",
-  "Git & GitHub",
-  "NLP & Text Summarization",
-];
-
-const certifications = [
-  { name: "Fundamentals of Red Hat Enterprise Linux", year: "2023" },
-  { name: "Google Cloud Technical Support Fundamentals", year: "2024" },
-  { name: "Google Cloud Skill Boost – Ongoing Learning", year: "2023 - Present" },
 ];
 
 const Skills = () => {
@@ -162,50 +155,6 @@ const Skills = () => {
             </StaggerItem>
           ))}
         </StaggerContainer>
-
-        {/* Certifications Section */}
-        <motion.div
-          className="max-w-4xl mx-auto mb-16"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Award className="h-6 w-6 text-primary" />
-            <h3 className="text-2xl font-bold text-center">
-              Certifications & <span className="text-primary">Learning</span>
-            </h3>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-4">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="relative"
-              >
-                <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 h-full">
-                  <CardContent className="pt-6 pb-4 text-center">
-                    <motion.div
-                      className="inline-flex p-2 rounded-full bg-primary/10 mb-3"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Sparkles className="h-4 w-4 text-primary" />
-                    </motion.div>
-                    <p className="text-sm font-medium text-foreground mb-1">{cert.name}</p>
-                    <p className="text-xs text-muted-foreground">{cert.year}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Additional Skills */}
         <motion.div
