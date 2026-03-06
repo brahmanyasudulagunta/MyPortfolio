@@ -9,8 +9,12 @@ import {
     Wrench,
     Menu,
     X,
+    Sun,
+    Moon,
+    Mail
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 interface NavItem {
     id: string;
@@ -25,12 +29,14 @@ const navItems: NavItem[] = [
     { id: "experience", label: "Experience", icon: Briefcase },
     { id: "projects", label: "Projects", icon: FolderKanban },
     { id: "skills", label: "Skills", icon: Wrench },
+    { id: "connect", label: "Connect", icon: Mail },
 ];
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState("hero");
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { theme, setTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -106,13 +112,25 @@ const Navbar = () => {
                     ))}
                 </div>
 
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-                </button>
+                <div className="flex items-center gap-4">
+                    {/* Theme Toggle */}
+                    <button
+                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                        className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-full transition-colors"
+                        aria-label="Toggle theme"
+                    >
+                        <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                        <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                    </button>
+
+                    {/* Mobile Toggle */}
+                    <button
+                        className="md:hidden p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"
+                        onClick={() => setIsOpen(!isOpen)}
+                    >
+                        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                    </button>
+                </div>
             </motion.nav>
 
             {/* Mobile Menu Overlay */}

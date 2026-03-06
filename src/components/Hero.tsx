@@ -2,15 +2,27 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Hero = () => {
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Premium Animated Background */}
+      <div className="absolute inset-0 w-full h-full bg-background -z-10">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] opacity-50 mix-blend-screen animate-blob" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] opacity-50 mix-blend-screen animate-blob animation-delay-2000" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
+      </div>
+
       <div className="container mx-auto px-6 z-10">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.span
             className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider uppercase rounded-full border border-border text-muted-foreground"
             initial={{ opacity: 0, y: 10 }}
@@ -20,16 +32,27 @@ const Hero = () => {
             Open to Work
           </motion.span>
 
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-foreground"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
+            }}
+            className="mb-4"
           >
-            Brahmanya Asrit
-            <br />
-            Sudulagunta
-          </motion.h1>
+            <motion.h1 
+              variants={textVariants}
+              className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-foreground"
+            >
+              Brahmanya Asrit
+            </motion.h1>
+            <motion.h1 
+              variants={textVariants}
+              className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent py-2"
+            >
+              Sudulagunta
+            </motion.h1>
+          </motion.div>
 
           <motion.p
             className="text-muted-foreground mb-10 text-lg"
@@ -64,7 +87,7 @@ const Hero = () => {
             {[
               { href: "https://github.com/brahmanyasudulagunta", icon: Github, label: "GitHub" },
               { href: "https://linkedin.com/in/brahmanyasudulagunta", icon: Linkedin, label: "LinkedIn" },
-              { href: "mailto:bsudulagunta@gmail.com", icon: Mail, label: "Email" },
+              { href: "mailto:sudulaguntabrahmanyaasrit@gmail.com", icon: Mail, label: "Email" },
             ].map((social) => (
               <a
                 key={social.label}
