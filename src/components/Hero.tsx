@@ -24,7 +24,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 z-10">
         <div className="max-w-3xl mx-auto text-center">
           <motion.span
-            className="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider uppercase rounded-full border border-border text-muted-foreground"
+            className="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-wider uppercase rounded-full bg-primary text-primary-foreground shadow-sm"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
