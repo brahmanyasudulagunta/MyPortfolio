@@ -177,19 +177,10 @@ const Projects = () => {
               transition={{ delay: index * 0.05, duration: 0.4 }}
               className="group p-5 rounded-2xl border border-border bg-card hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
             >
-              {/* Top border accent matching skill cards style */}
-              <motion.div
-                className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 to-primary opacity-0 group-hover:opacity-100 transition-opacity"
-              />
-
               <div className="flex items-start gap-4 mb-4 mt-1">
-                <motion.div
-                  className="p-3 bg-primary/10 rounded-xl shrink-0 border border-primary/20 shadow-sm"
-                  whileHover={{ rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <project.icon className="h-5 w-5 text-primary" />
-                </motion.div>
+                <div className="p-2.5 bg-secondary rounded-lg shrink-0 border border-border">
+                  <project.icon className="h-5 w-5 text-foreground" />
+                </div>
 
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
@@ -222,28 +213,24 @@ const Projects = () => {
               {project.highlights && (
                 <ul className="space-y-1.5 mb-5 pl-1.5">
                   {project.highlights.map((h, i) => (
-                    <li key={i} className="text-xs text-muted-foreground flex items-start gap-2 group/item">
-                      {/* Fixed blue dot to match dark blue theme */}
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1 shrink-0 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></span>
-                      <span className="group-hover/item:text-foreground/90 transition-colors leading-snug">{h}</span>
+                    <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                       <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50 mt-1.5 shrink-0"></span>
+                      <span className="leading-snug">{h}</span>
                     </li>
                   ))}
                 </ul>
               )}
 
-              <div className="flex flex-wrap gap-1.5 mt-auto pt-2 border-t border-border/50">
-                {project.tags.slice(0, 5).map((tag, i) => (
+              <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-border">
+                {project.tags.map((tag, i) => (
                   <Badge
                     key={i}
                     variant="secondary"
-                    className="text-[10px] px-2 py-0.5 bg-muted/60 text-muted-foreground border border-border/50 font-normal hover:bg-primary/20 hover:border-primary/30 hover:text-primary transition-colors rounded-md"
+                    className="text-xs px-2 py-0.5 bg-secondary text-secondary-foreground border border-border font-medium hover:bg-secondary/80 rounded-md"
                   >
                     {tag}
                   </Badge>
                 ))}
-                {project.tags.length > 5 && (
-                  <span className="text-[10px] text-muted-foreground px-1 py-0.5 mt-0.5">+{project.tags.length - 5}</span>
-                )}
               </div>
             </motion.div>
           ))}

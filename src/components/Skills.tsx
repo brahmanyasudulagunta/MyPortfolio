@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Cloud, Server, Network, Activity } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedTitle, StaggerContainer, StaggerItem } from "./animations/AnimatedSection";
-import { Card3D } from "./animations/Card3D";
 
 const skills = [
   {
@@ -98,60 +97,29 @@ const Skills = () => {
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
           {skills.map((category, index) => (
             <StaggerItem key={index}>
-              <Card3D className="h-full">
-                <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 h-full group relative overflow-hidden">
-                  {/* Gradient accent */}
-                  <motion.div
-                    className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${category.color}`}
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                  />
-
-                  <CardContent className="pt-8 pb-6">
-                    <div className="flex flex-col items-center text-center">
-                      <motion.div
-                        className={`mb-4 p-4 rounded-xl bg-gradient-to-br ${category.color} opacity-80`}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <category.icon className="h-7 w-7 text-white" />
-                      </motion.div>
-                      <h3 className="text-lg font-semibold mb-4">{category.title}</h3>
-                      <ul className="space-y-2 text-muted-foreground w-full">
+                <Card className="bg-card border-border hover:shadow-sm transition-all duration-300 h-full group">
+                  <CardContent className="pt-6 pb-6">
+                    <div className="flex flex-col items-center justify-center text-center">
+                      <div className="mb-4 p-3 rounded-lg bg-secondary border border-border">
+                        <category.icon className="h-5 w-5 text-foreground" />
+                      </div>
+                      <h3 className="text-lg font-semibold mb-4 text-foreground">{category.title}</h3>
+                      <ul className="space-y-2 w-full">
                         {category.skills.map((skill, skillIndex) => (
-                          <motion.li
+                          <li
                             key={skillIndex}
                             className="text-sm"
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.3 + skillIndex * 0.05 }}
                           >
-                            <motion.div
-                              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted/50 hover:bg-primary/10 transition-colors cursor-default"
-                              whileHover={{
-                                x: 5,
-                                scale: 1.02,
-                                rotateX: 5,
-                                rotateY: -5,
-                              }}
-                              style={{ transformStyle: "preserve-3d" }}
-                            >
-                              <motion.span
-                                className={`w-2 h-2 rounded-full bg-gradient-to-r ${category.color}`}
-                                whileHover={{ scale: 1.5 }}
-                              />
-                              <span>{skill.name}</span>
-                            </motion.div>
-                          </motion.li>
+                            <div className="flex justify-between items-center px-3 py-2 rounded-md bg-secondary/50 border border-transparent hover:border-border transition-colors">
+                              <span className="text-muted-foreground font-medium">{skill.name}</span>
+                              <span className="text-muted-foreground/60 text-xs">{skill.level}%</span>
+                            </div>
+                          </li>
                         ))}
                       </ul>
                     </div>
                   </CardContent>
                 </Card>
-              </Card3D>
             </StaggerItem>
           ))}
         </StaggerContainer>
