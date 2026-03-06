@@ -8,40 +8,40 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 20% 4%;
-    --foreground: 210 20% 98%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 220 20% 7%;
-    --card-foreground: 210 20% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 220 20% 4%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 210 100% 56%;
-    --primary-foreground: 220 20% 4%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 220 15% 12%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 185 100% 50%;
-    --accent-foreground: 220 20% 4%;
+    --accent: 185 100% 40%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 15%;
-    --ring: 210 100% 56%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
     --radius: 0.75rem;
 
     /* Custom portfolio colors */
     --gradient-primary: linear-gradient(135deg, hsl(210 100% 56%), hsl(185 100% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(220 20% 7%), hsl(220 20% 4%));
-    --shadow-glow: 0 0 40px hsl(210 100% 56% / 0.3);
+    --gradient-secondary: linear-gradient(135deg, hsl(210 40% 96.1%), hsl(0 0% 100%));
+    --shadow-glow: 0 0 40px hsl(210 100% 56% / 0.15);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 

@@ -116,11 +116,11 @@ const Navbar = () => {
                     {/* Theme Toggle */}
                     <button
                         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-full transition-colors"
+                        className="relative flex items-center justify-center p-2 h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-full transition-colors"
                         aria-label="Toggle theme"
                     >
-                        <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                        <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                        <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                     </button>
 
                     {/* Mobile Toggle */}
