@@ -24,11 +24,11 @@ interface NavItem {
 
 const navItems: NavItem[] = [
     { id: "hero", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "education", label: "Education", icon: GraduationCap },
     { id: "experience", label: "Experience", icon: Briefcase },
     { id: "projects", label: "Projects", icon: FolderKanban },
     { id: "skills", label: "Skills", icon: Wrench },
+    { id: "education", label: "Education", icon: GraduationCap },
+    { id: "about", label: "About", icon: User },
     { id: "connect", label: "Connect", icon: Mail },
 ];
 

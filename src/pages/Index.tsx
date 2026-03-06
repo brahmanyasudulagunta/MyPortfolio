@@ -1,7 +1,5 @@
 import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Education from "@/components/Education";
 import Experience from "@/components/Experience";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
@@ -9,6 +7,8 @@ import SEO from "@/components/SEO";
 // Lazy load components below the fold for better initial load performance
 const Projects = lazy(() => import("@/components/Projects"));
 const Skills = lazy(() => import("@/components/Skills"));
+const Education = lazy(() => import("@/components/Education"));
+const About = lazy(() => import("@/components/About"));
 const Connect = lazy(() => import("@/components/Connect"));
 const Footer = lazy(() => import("@/components/Footer"));
 
@@ -25,12 +25,12 @@ const Index = () => {
       <Navbar />
       <div className="pt-20">
         <Hero />
-        <About />
-        <Education />
         <Experience />
         <Suspense fallback={<LoadingFallback />}>
           <Projects />
           <Skills />
+          <Education />
+          <About />
           <Connect />
           <Footer />
         </Suspense>
