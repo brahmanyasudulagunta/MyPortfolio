@@ -11,19 +11,43 @@ const Connect = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate email sending since there is no backend hooked up yet
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+    const formData = new FormData(e.target as HTMLFormElement);
+    formData.append("access_key", "5360a754-5560-468b-b39d-2fd74d6708bc");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
       });
-      (e.target as HTMLFormElement).reset();
-    }, 1500);
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        toast({
+          title: "Something went wrong.",
+          description: data.message || "Failed to send the message. Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "An unexpected error occurred. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -52,6 +76,7 @@ const Connect = () => {
                   <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
+                    name="name"
                     placeholder="Name"
                     className="bg-background/50 border-border"
                     required
@@ -61,6 +86,7 @@ const Connect = () => {
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     placeholder="Email"
                     className="bg-background/50 border-border"
@@ -73,6 +99,7 @@ const Connect = () => {
                 <Label htmlFor="message">Message</Label>
                 <Textarea
                   id="message"
+                  name="message"
                   placeholder="Message"
                   className="min-h-[150px] bg-background/50 border-border"
                   required
