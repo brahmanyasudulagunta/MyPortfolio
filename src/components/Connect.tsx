@@ -1,22 +1,29 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Copy, CheckCircle2, Mail } from "lucide-react";
 import { AnimatedTitle } from "./animations/AnimatedSection";
-import { useToast } from "@/components/ui/use-toast"; // Assuming Shadcn Toast is setup
+import { useToast } from "@/components/ui/use-toast";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 const Connect = () => {
-  const [copied, setCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-  const email = "sudulaguntabrahmanyaasrit@gmail.com";
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    toast({
-      title: "Email copied!",
-      description: "Looking forward to connecting with you.",
-    });
-    setTimeout(() => setCopied(false), 2000);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate email sending since there is no backend hooked up yet
+    setTimeout(() => {
+      setIsSubmitting(false);
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      (e.target as HTMLFormElement).reset();
+    }, 1500);
   };
 
   return (
@@ -24,60 +31,62 @@ const Connect = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-2xl mx-auto text-center">
-          <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-6">
-            Let's <span className="bg-gradient-primary bg-clip-text text-transparent">Connect</span>
-          </AnimatedTitle>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-4">
+              Contact
+            </AnimatedTitle>
+            <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+          </div>
 
-          <motion.p
-            className="text-muted-foreground text-lg mb-10"
-            initial={{ opacity: 0, y: 10 }}
+          <motion.div
+            className="p-8 rounded-2xl bg-card border border-border shadow-sm backdrop-blur-sm"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            I'm currently exploring new grad and entry-level opportunities in Cloud, DevOps, and Platform Engineering. Whether you have a question or just want to say hi, my inbox is always open!
-          </motion.p>
-
-          <motion.div
-            className="inline-flex items-center justify-center p-1 rounded-2xl bg-gradient-to-r from-primary/20 via-primary/10 to-transparent border border-primary/20 backdrop-blur-sm"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="flex items-center bg-card rounded-xl overflow-hidden shadow-sm">
-              <div className="flex items-center gap-3 px-6 py-4 border-r border-border bg-muted/30">
-                <Mail className="h-5 w-5 text-primary" />
-                <span className="text-foreground font-medium sm:text-lg text-sm">{email}</span>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input
+                    id="name"
+                    placeholder="Name"
+                    className="bg-background/50 border-border"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    className="bg-background/50 border-border"
+                    required
+                  />
+                </div>
               </div>
-              <button
-                onClick={handleCopy}
-                className="px-6 py-4 flex items-center justify-center bg-primary/10 hover:bg-primary/20 transition-colors text-primary min-w-[100px]"
-                aria-label="Copy email address"
+
+              <div className="space-y-2">
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  placeholder="Message"
+                  className="min-h-[150px] bg-background/50 border-border"
+                  required
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full h-12 text-lg font-medium"
+                disabled={isSubmitting}
               >
-                {copied ? (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="flex items-center gap-2"
-                  >
-                    <CheckCircle2 className="h-5 w-5" />
-                    <span className="text-sm font-medium">Copied!</span>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="flex items-center gap-2"
-                  >
-                    <Copy className="h-5 w-5" />
-                    <span className="text-sm font-medium">Copy</span>
-                  </motion.div>
-                )}
-              </button>
-            </div>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
           </motion.div>
         </div>
       </div>
