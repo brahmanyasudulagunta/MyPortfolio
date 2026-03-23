@@ -12,13 +12,10 @@ const highlights = [
 const About = () => {
   return (
     <section id="about" className="py-24 bg-background relative overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
-      
       <div className="container mx-auto px-6 relative">
         <div className="max-w-4xl mx-auto">
-          <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-12 text-center">
-            About <span className="bg-gradient-primary bg-clip-text text-transparent">Me</span>
+          <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-12 text-center text-foreground">
+            About Me
           </AnimatedTitle>
           
           {/* Highlight Cards */}
@@ -43,14 +40,10 @@ const About = () => {
                 transition={{ duration: 0.4 }}
                 className="relative group"
               >
-                <div className="p-4 rounded-xl bg-card border border-border hover:border-primary/40 transition-all duration-300 text-center h-full">
-                  <motion.div 
-                    className="inline-flex p-3 rounded-lg bg-primary/10 mb-3 group-hover:bg-primary/20 transition-colors"
-                    whileHover={{ rotate: [0, -10, 10, 0] }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <item.icon className="h-5 w-5 text-primary" />
-                  </motion.div>
+                <div className="p-4 rounded-xl bg-card border border-border transition-colors text-center h-full flex flex-col items-center">
+                  <div className="inline-flex p-3 rounded-lg bg-secondary mb-3">
+                    <item.icon className="h-5 w-5 text-muted-foreground" />
+                  </div>
                   <p className="text-sm font-medium text-foreground mb-1">{item.label}</p>
                   <p className="text-xs text-muted-foreground">{item.value}</p>
                 </div>

@@ -5,11 +5,19 @@ import { useToast } from "@/components/ui/use-toast";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Copy, MapPin, Send, Github, Linkedin, Mail } from "lucide-react";
 
 const Connect = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("sudulaguntabrahmanyaasrit@gmail.com");
+    toast({
+      title: "Email copied!",
+      description: "My email address has been copied to your clipboard.",
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,70 +59,137 @@ const Connect = () => {
   };
 
   return (
-    <section id="connect" className="py-24 relative overflow-hidden bg-background">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-4">
-              Contact
-            </AnimatedTitle>
-            <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
-          </div>
-
+    <section id="connect" className="py-24 relative bg-background">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-8">
+          
+          {/* Left Column: Info & Links */}
           <motion.div
-            className="p-8 rounded-2xl bg-card border border-border shadow-sm backdrop-blur-sm"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col flex-1"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    className="bg-background/50 border-border"
-                    required
-                  />
+            <p className="text-sm font-semibold tracking-widest text-primary uppercase mb-4">
+              SAY HELLO
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Let's Work Together
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-md mb-12">
+              Actively seeking full-time Cloud, DevOps, and Platform Engineering roles. Open to industry and applied infrastructure positions.
+            </p>
+
+            <div className="flex flex-col gap-4 mb-8">
+              {/* Email Box */}
+              <div className="flex items-center justify-between p-4 rounded-xl border border-border/60 bg-secondary/20">
+                <div className="flex items-center gap-4">
+                  <Mail className="h-5 w-5 text-muted-foreground" />
+                  <a href="mailto:sudulaguntabrahmanyaasrit@gmail.com" className="text-primary hover:underline font-medium">
+                    sudulaguntabrahmanyaasrit@gmail.com
+                  </a>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    className="bg-background/50 border-border"
-                    required
-                  />
-                </div>
+                <button
+                  onClick={handleCopyEmail}
+                  className="p-2 text-muted-foreground hover:text-foreground transition-colors hover:bg-secondary rounded-md"
+                >
+                  <Copy className="h-4 w-4" />
+                </button>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
+              {/* Location Box */}
+              <div className="flex items-center gap-4 p-4 rounded-xl border border-border/60 bg-secondary/20">
+                <MapPin className="h-5 w-5 text-muted-foreground shrink-0" />
+                <span className="text-muted-foreground">Lubbock, TX — open to relocation & remote</span>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mb-10">
+              <a
+                href="https://github.com/brahmanyasudulagunta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl border border-border/60 bg-secondary/20 text-muted-foreground hover:text-foreground hover:border-border transition-colors flex items-center justify-center h-12 w-12"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://linkedin.com/in/brahmanyasudulagunta"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl border border-border/60 bg-secondary/20 text-muted-foreground hover:text-foreground hover:border-border transition-colors flex items-center justify-center h-12 w-12"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+            </div>
+
+            {/* Availability Box */}
+            <div className="p-5 rounded-2xl border border-[#1a2e22] bg-[#0c1813] max-w-md">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_5px_rgba(34,197,94,0.6)] animate-pulse" />
+                <span className="font-semibold text-green-500/90 text-sm tracking-wide">Available May 2026</span>
+              </div>
+              <p className="text-sm text-green-500/70 leading-relaxed">
+                Available for full-time roles. Authorized to work in the US on OPT (STEM OPT eligible).
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex items-center lg:pl-10"
+          >
+            <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-md ml-auto">
+              <div className="space-y-1.5">
+                <label htmlFor="name" className="text-xs font-semibold text-muted-foreground pl-1">Name</label>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  className="bg-card border-transparent focus-visible:ring-1 focus-visible:border-border focus-visible:ring-primary/30 h-12 px-4 shadow-sm rounded-xl text-sm"
+                  required
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label htmlFor="email" className="text-xs font-semibold text-muted-foreground pl-1">Email</label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  className="bg-card border-transparent focus-visible:ring-1 focus-visible:border-border focus-visible:ring-primary/30 h-12 px-4 shadow-sm rounded-xl text-sm"
+                  required
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label htmlFor="message" className="text-xs font-semibold text-muted-foreground pl-1">Message</label>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Message"
-                  className="min-h-[150px] bg-background/50 border-border"
+                  placeholder="Tell me about the role or opportunity..."
+                  className="min-h-[160px] resize-none bg-card border-transparent focus-visible:ring-1 focus-visible:border-border focus-visible:ring-primary/30 p-4 shadow-sm rounded-xl text-sm"
                   required
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full h-12 text-lg font-medium"
+                className="w-full h-12 text-sm font-semibold rounded-xl bg-primary hover:bg-primary/90 text-white shadow-sm flex gap-2 items-center justify-center transition-colors"
                 disabled={isSubmitting}
               >
+                <Send className="w-4 h-4" />
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </motion.div>
+
         </div>
       </div>
     </section>

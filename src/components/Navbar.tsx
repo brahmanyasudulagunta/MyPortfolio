@@ -14,7 +14,6 @@ import {
     Mail
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useTheme } from "next-themes";
 
 interface NavItem {
     id: string;
@@ -36,7 +35,6 @@ const Navbar = () => {
     const [activeSection, setActiveSection] = useState("hero");
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { theme, setTheme } = useTheme();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -79,7 +77,7 @@ const Navbar = () => {
                 animate={{ y: 0 }}
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300",
-                    scrolled ? "bg-background/80 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"
+                    scrolled ? "bg-background border-b border-border" : "bg-transparent"
                 )}
             >
                 <div className="flex items-center gap-2">
@@ -110,16 +108,6 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    {/* Theme Toggle */}
-                    <button
-                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="relative flex items-center justify-center p-2 h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-full transition-colors"
-                        aria-label="Toggle theme"
-                    >
-                        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                        <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    </button>
-
                     {/* Mobile Toggle */}
                     <button
                         className="md:hidden p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"

@@ -151,23 +151,13 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative bg-background">
       <div className="container mx-auto px-6">
-        <AnimatedTitle className="text-3xl md:text-4xl font-bold mb-4 text-center text-foreground">
-          Featured Projects
+        <AnimatedTitle className="text-3xl md:text-4xl font-bold mb-14 text-center text-foreground">
+          Projects
         </AnimatedTitle>
 
-        <motion.p
-          className="text-center text-muted-foreground mb-14 max-w-xl mx-auto text-sm"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-        >
-          Cloud infrastructure, DevOps, and AI/ML
-        </motion.p>
-
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -175,75 +165,47 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.4 }}
-              className="group p-5 rounded-2xl border border-border bg-card hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+              className="group p-6 flex flex-col rounded-2xl bg-card border border-border/50 hover:border-border transition-all duration-300"
             >
-              {/* Top border accent matching skill cards style */}
-              <motion.div
-                className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary/50 to-primary opacity-0 group-hover:opacity-100 transition-opacity"
-              />
-
-              <div className="flex items-start gap-4 mb-4 mt-1">
-                <motion.div
-                  className="p-3 bg-primary/10 rounded-xl shrink-0 border border-primary/20 shadow-sm"
-                  whileHover={{ rotate: [0, -10, 10, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <project.icon className="h-5 w-5 text-primary" />
-                </motion.div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-                    <h3 className="text-sm font-semibold text-foreground truncate pr-2">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center gap-2 shrink-0">
-                      <span className="text-[10px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-sm border border-primary/20">
-                        {project.degree}
-                      </span>
-                      <span className="text-xs text-muted-foreground font-mono">{project.year}</span>
-                      {project.github && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-primary transition-colors ml-1"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 mt-1.5">
-                    {project.description}
-                  </p>
+              {/* Header: Dots and Github Link */}
+              <div className="flex justify-between items-center mb-6">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#5b52c0]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#9c5188]" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#3d3d45]" />
                 </div>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                )}
               </div>
 
-              {project.highlights && (
-                <ul className="space-y-1.5 mb-5 pl-1.5">
-                  {project.highlights.map((h, i) => (
-                    <li key={i} className="text-xs text-muted-foreground flex items-start gap-2 group/item">
-                      {/* Fixed blue dot to match dark blue theme */}
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1 shrink-0 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></span>
-                      <span className="group-hover/item:text-foreground/90 transition-colors leading-snug">{h}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              {/* Body: Title and Description */}
+              <div className="mb-6 flex-1">
+                <h3 className="text-lg font-bold text-foreground mb-3 leading-tight">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
 
-              <div className="flex flex-wrap gap-1.5 mt-auto pt-2 border-t border-border/50">
-                {project.tags.slice(0, 5).map((tag, i) => (
-                  <Badge
+              {/* Footer: Tags */}
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {project.tags.map((tag, i) => (
+                  <span
                     key={i}
-                    variant="secondary"
-                    className="text-[10px] px-2 py-0.5 bg-muted/60 text-muted-foreground border border-border/50 font-normal hover:bg-primary/20 hover:border-primary/30 hover:text-primary transition-colors rounded-md"
+                    className="text-[11px] px-2.5 py-1 bg-secondary border border-border/80 text-muted-foreground rounded-full font-medium"
                   >
                     {tag}
-                  </Badge>
+                  </span>
                 ))}
-                {project.tags.length > 5 && (
-                  <span className="text-[10px] text-muted-foreground px-1 py-0.5 mt-0.5">+{project.tags.length - 5}</span>
-                )}
               </div>
             </motion.div>
           ))}

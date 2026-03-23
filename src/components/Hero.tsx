@@ -13,13 +13,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Premium Animated Background */}
-      <div className="absolute inset-0 w-full h-full bg-background -z-10">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] opacity-50 mix-blend-screen animate-blob" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] opacity-50 mix-blend-screen animate-blob animation-delay-2000" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-      </div>
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
 
       <div className="container mx-auto px-6 z-10">
         <div className="max-w-3xl mx-auto text-center">
@@ -48,7 +42,7 @@ const Hero = () => {
             </motion.h1>
             <motion.h1 
               variants={textVariants}
-              className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent py-2"
+              className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-primary py-2"
             >
               Sudulagunta
             </motion.h1>

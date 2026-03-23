@@ -7,72 +7,44 @@ All colors MUST be HSL.
 */
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+  :root, .dark {
+    /* Very dark near-black background: #080809 */
+    --background: 240 6% 3%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Slightly lighter dark for cards: #111114 */
+    --card: 240 6% 7%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 6% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    /* Solid subtle blue/purple accent: #5b62f4 */
+    --primary: 236 88% 65%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Pill backgrounds */
+    --secondary: 240 6% 12%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted text */
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 185 100% 40%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 236 88% 65%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Very subtle borders: #1e1e24 */
+    --border: 240 6% 13%;
+    --input: 240 6% 13%;
+    --ring: 236 88% 65%;
 
     --radius: 0.75rem;
 
-    /* Custom portfolio colors */
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 56%), hsl(185 100% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(210 40% 96.1%), hsl(0 0% 100%));
-    --shadow-glow: 0 0 40px hsl(210 100% 56% / 0.15);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 220 20% 4%;
-    --foreground: 210 20% 98%;
-
-    --card: 220 20% 7%;
-    --card-foreground: 210 20% 98%;
-
-    --popover: 220 20% 4%;
-    --popover-foreground: 210 20% 98%;
-
-    --primary: 210 100% 56%;
-    --primary-foreground: 220 20% 4%;
-
-    --secondary: 220 15% 12%;
-    --secondary-foreground: 210 20% 98%;
-
-    --muted: 220 15% 15%;
-    --muted-foreground: 215 15% 65%;
-
-    --accent: 185 100% 50%;
-    --accent-foreground: 220 20% 4%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 98%;
-
-    --border: 220 15% 18%;
-    --input: 220 15% 15%;
-    --ring: 210 100% 56%;
+    /* Removed all 3D or glow variables */
   }
 }
 
@@ -87,7 +59,12 @@ All colors MUST be HSL.
   }
 }
 
-/* Section dividers for clear visual separation */
+/* Minimal section styling */
+section {
+  position: relative;
+  background-color: transparent !important;
+}
+
 section+section {
-  border-top: 1px solid hsl(var(--border));
+  border-top: 1px solid hsl(var(--border) / 0.5);
 }

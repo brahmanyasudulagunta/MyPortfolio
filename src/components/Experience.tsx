@@ -2,7 +2,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Briefcase, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedTitle, StaggerContainer, StaggerItem } from "./animations/AnimatedSection";
-import { Card3D } from "./animations/Card3D";
 
 const experience = [
   {
@@ -24,10 +23,7 @@ const experience = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 bg-background relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-1/2 bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
-
+    <section id="experience" className="py-24 bg-background relative overflow-hidden text-foreground">
       <div className="container mx-auto px-6 relative">
         <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-12 text-center">
           Professional <span className="bg-gradient-primary bg-clip-text text-transparent">Experience</span>
@@ -36,24 +32,13 @@ const Experience = () => {
         <StaggerContainer className="max-w-4xl mx-auto">
           {experience.map((exp, index) => (
             <StaggerItem key={index}>
-              <Card3D>
-                <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300">
+              <div className="mb-6">
+                <Card className="bg-card border-border hover:border-primary/30 transition-colors shadow-none rounded-xl">
                   <CardHeader>
                     <div className="flex items-start gap-4">
-                      <motion.div
-                        className="p-3 bg-primary/10 rounded-lg"
-                        whileHover={{ scale: 1.1 }}
-                        animate={{
-                          boxShadow: [
-                            "0 0 0 0 hsl(var(--primary) / 0)",
-                            "0 0 0 8px hsl(var(--primary) / 0.1)",
-                            "0 0 0 0 hsl(var(--primary) / 0)"
-                          ]
-                        }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <Briefcase className="h-6 w-6 text-primary" />
-                      </motion.div>
+                      <div className="p-3 bg-secondary rounded-lg">
+                        <Briefcase className="h-6 w-6 text-muted-foreground" />
+                      </div>
                       <div className="flex-1">
                         <div className="flex items-start justify-between flex-wrap gap-2">
                           <div>
@@ -62,12 +47,11 @@ const Experience = () => {
                               {exp.company}
                             </CardDescription>
                           </div>
-                          <motion.span
-                            className="text-sm text-muted-foreground whitespace-nowrap px-3 py-1 rounded-full bg-primary/10 text-primary"
-                            whileHover={{ scale: 1.05 }}
+                          <span
+                            className="text-sm text-foreground whitespace-nowrap px-3 py-1 bg-secondary rounded-full border border-border"
                           >
                             {exp.period}
-                          </motion.span>
+                          </span>
                         </div>
                         <p className="text-sm text-muted-foreground mt-1">{exp.location}</p>
                       </div>
@@ -99,7 +83,7 @@ const Experience = () => {
                     </ul>
                   </CardContent>
                 </Card>
-              </Card3D>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
