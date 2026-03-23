@@ -19,8 +19,8 @@ All colors MUST be HSL.
     --popover: 240 6% 7%;
     --popover-foreground: 0 0% 98%;
 
-    /* Solid skyblue accent: #60a5fa */
-    --primary: 213 97% 68%;
+    /* Solid vibrant indigo accent: #5b62f4 */
+    --primary: 236 88% 65%;
     --primary-foreground: 0 0% 98%;
 
     /* Pill backgrounds */
@@ -31,7 +31,7 @@ All colors MUST be HSL.
     --muted: 240 6% 12%;
     --muted-foreground: 240 5% 65%;
 
-    --accent: 213 97% 68%;
+    --accent: 236 88% 65%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
@@ -40,7 +40,7 @@ All colors MUST be HSL.
     /* Very subtle borders: #1e1e24 */
     --border: 240 6% 13%;
     --input: 240 6% 13%;
-    --ring: 213 97% 68%;
+    --ring: 236 88% 65%;
 
     --radius: 0.75rem;
 

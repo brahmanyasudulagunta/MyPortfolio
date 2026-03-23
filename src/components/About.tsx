@@ -12,15 +12,19 @@ const highlights = [
 const About = () => {
   return (
     <section id="about" className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6 relative">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-12 text-center text-foreground">
-            About Me
-          </AnimatedTitle>
-          
+      <div className="container mx-auto px-6 max-w-5xl relative">
+        
+        {/* Header */}
+        <div className="mb-16">
+          <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">INTRO</p>
+          <h2 className="text-4xl font-bold mb-3 text-foreground">About Me</h2>
+          <div className="w-12 h-px bg-primary/50 mt-6" />
+        </div>
+
+        <div className="w-full">
           {/* Highlight Cards */}
           <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}

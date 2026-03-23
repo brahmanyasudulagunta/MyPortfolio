@@ -25,12 +25,16 @@ const education = [
 const Education = () => {
   return (
     <section id="education" className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6 relative">
-        <AnimatedTitle className="text-4xl md:text-5xl font-bold mb-12 text-center">
-          <span className="bg-gradient-primary bg-clip-text text-transparent">Education</span>
-        </AnimatedTitle>
+      <div className="container mx-auto px-6 max-w-5xl relative">
         
-        <StaggerContainer className="max-w-4xl mx-auto space-y-6">
+        {/* Header */}
+        <div className="mb-16">
+          <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">ACADEMICS</p>
+          <h2 className="text-4xl font-bold mb-3">Education</h2>
+          <div className="w-12 h-px bg-primary/50 mt-6" />
+        </div>
+        
+        <StaggerContainer className="w-full space-y-6">
           {education.map((edu, index) => (
             <StaggerItem key={index}>
               <div className="mb-6">

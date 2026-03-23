@@ -152,12 +152,16 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="py-24 relative bg-background">
-      <div className="container mx-auto px-6">
-        <AnimatedTitle className="text-3xl md:text-4xl font-bold mb-14 text-center text-foreground">
-          Projects
-        </AnimatedTitle>
+      <div className="container mx-auto px-6 max-w-5xl">
+        
+        {/* Header */}
+        <div className="mb-16">
+          <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">PORTFOLIO</p>
+          <h2 className="text-4xl font-bold mb-3 text-foreground">Featured Projects</h2>
+          <div className="w-12 h-px bg-primary/50 mt-6" />
+        </div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-6 w-full">
           {projects.map((project, index) => (
             <motion.div
               key={index}

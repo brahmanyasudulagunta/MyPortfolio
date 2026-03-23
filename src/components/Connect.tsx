@@ -60,8 +60,8 @@ const Connect = () => {
 
   return (
     <section id="connect" className="py-24 relative bg-background">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-8">
+      <div className="container mx-auto px-6 max-w-5xl">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Left Column: Info & Links */}
           <motion.div
