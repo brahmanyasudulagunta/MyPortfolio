@@ -30,7 +30,7 @@ const skillsData = [
 const Skills = () => {
   return (
     <section id="skills" className="py-24 bg-background relative">
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-6 max-w-7xl">
         {/* Header Section */}
         <motion.div
           className="mb-16"
@@ -64,7 +64,7 @@ const Skills = () => {
             >
               {/* Left Column: Category Label */}
               <div className="md:w-56 shrink-0 mt-1.5">
-                <h3 className="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase">
+                <h3 className="text-sm font-bold tracking-[0.2em] text-foreground uppercase">
                   {category.title}
                 </h3>
               </div>

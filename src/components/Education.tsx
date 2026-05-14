@@ -25,75 +25,60 @@ const education = [
 const Education = () => {
   return (
     <section id="education" className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-6 max-w-5xl relative">
+      <div className="container mx-auto px-6 max-w-7xl relative">
         
         {/* Header */}
         <div className="mb-16">
-          <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">ACADEMICS</p>
+          <p className="text-xs font-bold tracking-widest text-primary uppercase mb-2">BACKGROUND</p>
           <h2 className="text-4xl font-bold mb-3">Education</h2>
           <div className="w-12 h-px bg-primary/50 mt-6" />
         </div>
         
-        <StaggerContainer className="w-full space-y-6">
+        <div className="grid lg:grid-cols-2 gap-6 w-full">
           {education.map((edu, index) => (
-            <StaggerItem key={index}>
-              <div className="mb-6">
-                <Card className="bg-card border-border hover:border-primary/30 transition-colors shadow-none rounded-xl">
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-secondary rounded-lg">
-                        <GraduationCap className="h-6 w-6 text-muted-foreground" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-start justify-between flex-wrap gap-2">
-                          <div>
-                            <CardTitle className="text-2xl mb-1">{edu.school}</CardTitle>
-                            <CardDescription className="text-base font-medium text-foreground">
-                              {edu.degree}
-                            </CardDescription>
-                          </div>
-                          <span 
-                            className="text-sm text-foreground whitespace-nowrap px-3 py-1 bg-secondary rounded-full border border-border"
-                          >
-                            {edu.period}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 ml-16">
-                      <div className="flex items-center gap-4 text-sm">
-                        <span className="text-muted-foreground">{edu.location}</span>
-                        <span className="text-muted-foreground">•</span>
-                        <span className="font-medium text-foreground">
-                          GPA: {edu.gpa}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium mb-2">Relevant Coursework:</p>
-                        <div className="flex flex-wrap gap-2">
-                          {edu.coursework.map((course, i) => (
-                            <motion.span 
-                              key={i} 
-                              className="px-3 py-1 bg-secondary border border-border rounded-full text-xs text-foreground"
-                              initial={{ opacity: 0 }}
-                              whileInView={{ opacity: 1 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: 0.1 * i }}
-                            >
-                              {course}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="p-8 rounded-2xl bg-card border border-border/50 hover:border-border transition-colors flex flex-col h-full"
+            >
+              {/* Header: School and Date */}
+              <div className="flex justify-between items-start mb-1.5">
+                <h3 className="text-lg font-bold text-foreground">{edu.school}</h3>
+                <span className="text-[11px] text-muted-foreground shrink-0 mt-1">{edu.period}</span>
               </div>
-            </StaggerItem>
+              
+              {/* Degree */}
+              <p className="text-sm font-medium text-primary mb-6">{edu.degree}</p>
+
+              {/* Location */}
+              <p className="text-xs text-muted-foreground mb-4">{edu.location}</p>
+
+              {/* GPA */}
+              <p className="text-xs mb-8">
+                <span className="text-muted-foreground mr-1.5">GPA</span>
+                <span className="font-semibold text-foreground/90">{edu.gpa}</span>
+              </p>
+
+              {/* Coursework */}
+              <div className="mt-auto">
+                <p className="text-[11px] text-muted-foreground mb-3">Relevant Courses</p>
+                <div className="flex flex-wrap gap-2">
+                  {edu.coursework.map((course, i) => (
+                    <span 
+                      key={i} 
+                      className="px-2.5 py-1 bg-secondary/60 border border-border/80 rounded-md text-[11px] text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );

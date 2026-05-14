@@ -29,17 +29,22 @@ export const FloatingOrb = ({
 
 export const GlowingGrid = ({ className = "" }: { className?: string }) => {
   return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
+    <div className={`absolute inset-0 overflow-hidden pointer-events-none z-0 ${className}`}>
+      {/* Base Grid */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.2]"
         style={{
           backgroundImage: `
-            linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px)
+            linear-gradient(hsl(var(--primary) / 0.5) 1px, transparent 1px),
+            linear-gradient(90deg, hsl(var(--primary) / 0.5) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px',
+          backgroundSize: '40px 40px',
         }}
       />
+      
+      {/* Radial Mask for "Glow" effect */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background opacity-80" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,hsl(var(--background))_80%)]" />
     </div>
   );
 };
@@ -50,18 +55,19 @@ export const ParticleField = ({ count = 20 }: { count?: number }) => {
       {Array.from({ length: count }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-primary/30"
+          className="absolute w-[2px] h-[2px] rounded-full bg-primary/40 shadow-[0_0_8px_hsl(var(--primary))]"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -100, 0],
-            opacity: [0, 1, 0],
+            y: [0, -60, 0],
+            opacity: [0, 0.8, 0],
+            scale: [1, 1.5, 1],
           }}
           transition={{
-            duration: 4 + Math.random() * 4,
-            delay: Math.random() * 4,
+            duration: 6 + Math.random() * 6,
+            delay: Math.random() * 5,
             repeat: Infinity,
             ease: "easeInOut",
           }}

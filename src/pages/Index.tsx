@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
-import Experience from "@/components/Experience";
+
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 
@@ -25,7 +25,7 @@ const Index = () => {
       <Navbar />
       <div className="pt-20">
         <Hero />
-        <Experience />
+
         <Suspense fallback={<LoadingFallback />}>
           <Projects />
           <Skills />

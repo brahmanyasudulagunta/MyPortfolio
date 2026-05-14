@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 import {
     Home,
     User,
     GraduationCap,
-    Briefcase,
     FolderKanban,
     Wrench,
     Menu,
@@ -23,7 +23,6 @@ interface NavItem {
 
 const navItems: NavItem[] = [
     { id: "hero", label: "Home", icon: Home },
-    { id: "experience", label: "Experience", icon: Briefcase },
     { id: "projects", label: "Projects", icon: FolderKanban },
     { id: "skills", label: "Skills", icon: Wrench },
     { id: "education", label: "Education", icon: GraduationCap },
@@ -32,6 +31,7 @@ const navItems: NavItem[] = [
 ];
 
 const Navbar = () => {
+    const { theme, setTheme } = useTheme();
     const [activeSection, setActiveSection] = useState("hero");
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -108,6 +108,15 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
+                    {/* Theme Toggle */}
+                    <button
+                        className="p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"
+                        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                        aria-label="Toggle Theme"
+                    >
+                        {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                    </button>
+
                     {/* Mobile Toggle */}
                     <button
                         className="md:hidden p-2 text-foreground hover:bg-secondary rounded-lg transition-colors"

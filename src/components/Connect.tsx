@@ -60,7 +60,7 @@ const Connect = () => {
 
   return (
     <section id="connect" className="py-24 relative bg-background">
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Left Column: Info & Links */}
@@ -105,25 +105,7 @@ const Connect = () => {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4 mb-10">
-              <a
-                href="https://github.com/brahmanyasudulagunta"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-xl border border-border/60 bg-secondary/20 text-muted-foreground hover:text-foreground hover:border-border transition-colors flex items-center justify-center h-12 w-12"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/brahmanyasudulagunta"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-xl border border-border/60 bg-secondary/20 text-muted-foreground hover:text-foreground hover:border-border transition-colors flex items-center justify-center h-12 w-12"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
+
 
             {/* Availability Box */}
             <div className="p-5 rounded-2xl border border-[#1a2e22] bg-[#0c1813] max-w-md">
