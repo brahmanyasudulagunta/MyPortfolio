@@ -2,28 +2,28 @@ import { motion } from "framer-motion";
 
 const skillsData = [
   {
-    title: "Container & GitOps",
-    skills: ["Kubernetes", "Docker", "ArgoCD", "kind", "Docker Compose", "Helm", "YAML"],
+    title: "Container & Orchestration",
+    skills: ["Kubernetes", "Docker", "Helm", "ArgoCD", "kind", "Docker Compose", "YAML"],
   },
   {
     title: "Infra & Cloud",
-    skills: ["Terraform", "Ansible", "OpenStack", "Linux / CentOS", "KVM / libvirt", "Google Cloud", "AWS (Basic)"],
+    skills: ["Terraform", "Ansible", "AWS", "Google Cloud", "OpenStack", "Linux", "KVM / libvirt"],
   },
   {
     title: "CI/CD & Automation",
-    skills: ["Jenkins", "Bash / Shell", "GitHub Actions", "Git", "Infrastructure as Code"],
+    skills: ["Jenkins", "GitHub Actions", "GitLab CI", "Git", "Bash / Shell", "Python", "Infrastructure as Code"],
   },
   {
-    title: "Observability & Sec",
-    skills: ["Prometheus", "Grafana", "Nginx", "RBAC", "NetworkPolicies", "OPA Guardrails"],
+    title: "Observability & Monitoring",
+    skills: ["Prometheus", "Grafana", "OpenTelemetry", "Datadog", "ELK Stack", "Nginx"],
   },
   {
-    title: "Languages & Tools",
-    skills: ["Python", "Java", "JavaScript", "TypeScript", "React & Vite", "FastAPI", "Flask", "PostgreSQL", "MySQL", "Redis"],
+    title: "DevSecOps & Networking",
+    skills: ["HashiCorp Vault", "Trivy", "OPA / Policy-as-Code", "RBAC", "NetworkPolicies", "SSL / TLS", "DNS / TCP-IP / Firewalls"],
   },
   {
-    title: "AI & Specialized",
-    skills: ["AI/ML", "LLM Integration", "Gemini API", "Pytest", "Vector Databases (ChromaDB)", "Wireshark", "Network Topologies"],
+    title: "AI Dev Tools",
+    skills: ["Cursor", "Antigravity", "GitHub Copilot", "OpenCode", "Gemini CLI"],
   }
 ];
 
@@ -46,7 +46,7 @@ const Skills = () => {
             Skills
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl">
-            Technologies, frameworks, and tools I use to build cloud infrastructure, DevOps pipelines, and intelligent systems.
+            Technologies, frameworks, and tools I use to build cloud infrastructure, DevOps pipelines, and platform engineering solutions.
           </p>
           <div className="w-16 h-0.5 bg-primary/40 mt-10" />
         </motion.div>

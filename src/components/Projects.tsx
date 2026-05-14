@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedTitle } from "./animations/AnimatedSection";
-import { ExternalLink, Cloud, Server, Database, Container, Activity, GitBranch, Building } from "lucide-react";
+import { ExternalLink, Cloud, Server, Database, Activity, Building } from "lucide-react";
 import { useState } from "react";
 
 export type Project = {
@@ -21,46 +21,18 @@ export type Project = {
 const projects: Project[] = [
   // 2026 Projects
   {
-    title: "DevPlatform — K8s Infrastructure Provisioning",
-    description: "Self-service infrastructure platform that provisions secure Kubernetes namespaces via Git. Automated isolation with resource quotas, RBAC, and Terraform-driven pipeline.",
-    tags: ["Terraform", "Jenkins", "Ansible", "Kubernetes", "RBAC"],
+    title: "DevPlatform — End-to-End GitOps Platform",
+    description: "A production-grade Internal Developer Platform spanning three repositories: Terraform-driven K8s namespace provisioning with RBAC isolation, a full-stack IDP control plane for approval-based governance, and ArgoCD-synced GitOps manifests for automated deployments.",
+    tags: ["Terraform", "ArgoCD", "Kubernetes", "Jenkins", "FastAPI", "React", "OPA", "RBAC"],
     year: "2026",
     degree: "Masters",
     icon: Building,
     highlights: [
-      "Multi-environment (dev/prod) isolation with NetworkPolicies",
-      "CI guardrails blocking destructive commands via OPA",
-      "Self-service namespace provisioning via PR workflow"
+      "Self-service namespace provisioning with Terraform, Ansible & OPA guardrails",
+      "Full-stack IDP control plane with approval workflows & admin dashboard",
+      "ArgoCD GitOps delivery with automated dev syncs & manual prod gates"
     ],
     github: "https://github.com/brahmanyasudulagunta/DevPlatform"
-  },
-  {
-    title: "gitops — Platform Control Plane & IDP",
-    description: "Internal Developer Platform (IDP) serving as the platform control plane. Replaces auto-push with an approval-based workflow for infrastructure and application governance.",
-    tags: ["FastAPI", "React", "Jenkins", "PostgreSQL", "Docker"],
-    year: "2026",
-    degree: "Masters",
-    icon: GitBranch,
-    highlights: [
-      "Full-stack IDP for tracking infra requests and statuses",
-      "Approval-based GitOps matching enterprise standards",
-      "Admin dashboard for reviewing namespace/app requests"
-    ],
-    github: "https://github.com/brahmanyasudulagunta/gitops"
-  },
-  {
-    title: "gitops-prod — GitOps Deployment Manifests",
-    description: "The single source of truth for K8s deployments. Used by ArgoCD to watch and automatically synchronize manifests to ensure the cluster matches Git definitions.",
-    tags: ["ArgoCD", "Kubernetes", "GitOps", "Canary", "YAML"],
-    year: "2026",
-    degree: "Masters",
-    icon: Container,
-    highlights: [
-      "ArgoCD bridge for automated sync & self-healing",
-      "Automated develop syncs & manual production gates",
-      "Environment-specific resource optimization & tracking"
-    ],
-    github: "https://github.com/brahmanyasudulagunta/gitops-prod"
   },
   // 2025 Projects
   {

@@ -9,7 +9,7 @@ import { AnimatedTitle, AnimatedSection } from "./animations/AnimatedSection";
 const contactInfo = [
   { icon: Mail, label: "Email", value: "bsudulag@ttu.edu", href: "mailto:bsudulag@ttu.edu" },
   { icon: Phone, label: "Phone", value: "+1 (806) 283-1559", href: "tel:+18062831559" },
-  { icon: MapPin, label: "Location", value: "Lubbock, TX, USA", href: null },
+  { icon: MapPin, label: "Location", value: "TX, USA", href: null },
 ];
 
 const Contact = () => {

@@ -7,7 +7,7 @@ const education = [
   {
     school: "Texas Tech University",
     degree: "Master of Science in Computer Science",
-    location: "Lubbock, TX, USA",
+    location: "TX, USA",
     period: "Aug 2024 - Present",
     gpa: "3.5/4.0",
     coursework: ["Advanced Operating Systems", "Information and Computer Security", "Cloud Infrastructure Management"],

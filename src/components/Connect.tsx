@@ -101,7 +101,7 @@ const Connect = () => {
               {/* Location Box */}
               <div className="flex items-center gap-4 p-4 rounded-xl border border-border/60 bg-secondary/20">
                 <MapPin className="h-5 w-5 text-muted-foreground shrink-0" />
-                <span className="text-muted-foreground">Lubbock, TX — open to relocation & remote</span>
+                <span className="text-muted-foreground">TX, USA — open to relocation & remote</span>
               </div>
             </div>
 
